@@ -24,6 +24,7 @@ function clayton_api_action_delete() {
 	if( !isset( $_REQUEST['shorturl'] ) ) {
 		return array(
 			'statusCode' => 400,
+			'status'     => 'fail',
 			'simple'     => "Need a 'shorturl' parameter",
 			'message'    => 'error: missing param',
 		);	
@@ -35,6 +36,7 @@ function clayton_api_action_delete() {
 	if( !yourls_is_shorturl( $shorturl ) ) {
 		return array(
 			'statusCode' => 404,
+			'status'     => 'fail',
 			'simple'    => 'Error: short URL not found',
 			'message'    => 'error: not found',
 		);	
@@ -57,6 +59,7 @@ function clayton_api_action_delete() {
 	} else {
 		return array(
 			'statusCode' => 500,
+			'status'     => 'fail',
 			'simple'     => 'Error: could not delete shorturl, not sure why :-/',
 			'message'    => 'error: unknown error',
 		);	
